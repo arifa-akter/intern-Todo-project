@@ -15,6 +15,7 @@ connect(process.env.DB_CONNECTION).then(()=>console.log('mongoose successfully c
 
 const usersRoute = require('./routes/users')
 const categoryRoute = require('./routes/category')
+const toDoRoute = require('./routes/todo')
 // app execute
 const app = express();
 app.use(cors());
@@ -23,5 +24,6 @@ app.use(morgan('dev'));
 // router connect
 app.use('/users' ,usersRoute)
 app.use('/category' ,categoryRoute)
+app.use('/toDo' ,toDoRoute)
 
 module.exports = app

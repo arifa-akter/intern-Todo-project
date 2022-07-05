@@ -50,3 +50,15 @@ exports.singleCategory =async (req , res)=>{
     }
 
 }
+exports.deleteCategory =async (req , res)=>{
+    try{
+       await Category.findByIdAndDelete(req.params.id)
+       res.status(200).json({message:"delete id successfully"})
+      
+    }
+    catch(error){
+        console.log(error)
+        res.status(500).json({message:`category not found${error}`})   
+    }
+
+}
